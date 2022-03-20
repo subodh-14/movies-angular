@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router,
+  RouterEvent,
+  NavigationStart,
+  NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +10,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'movies-app';
+  
+  isLoader: boolean;
+
+  constructor(private _router:Router){}
+
+  ngOnInit() {
+    this.routerEvents();
+  }
+  routerEvents() {
+    this._router.events.subscribe((event: RouterEvent) => {
+      switch (true) {
+        case event instanceof NavigationStart: {
+          this.isLoader = true;
+          break;
+        }
+        case event instanceof NavigationEnd: {
+          this.isLoader = false;
+          break;
+        }
+      }
+    });
+  }
 }

@@ -1,0 +1,9 @@
+<div class="text_size bg_div" fxLayoutAlign="center"  >Movies</div>
+
+<div class="post-list grid-container">
+    <div class="card" *ngFor="let movie of Movies">
+      <div class="title"><b>{{movie?.title}}</b></div>
+      <div class="body">{{movie.description}}</div>
+      <h4>{{movie.genres}}</h4>
+    </div>
+  </div>

@@ -1,0 +1,10 @@
+.text_size{
+    font-size: 50px;
+}
+.bg_div{
+background-color: rgb(209, 212, 212);
+}
+.bg_btn{
+    background-color: black;
+    color: white;
+}
